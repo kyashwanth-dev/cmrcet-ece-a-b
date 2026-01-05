@@ -1,0 +1,41 @@
+You are the lead programmer at "Stellar Dynamics" space agency's
+mission control center. The command center receives encoded instructions
+from ground stations worldwide. Your task is to build a command parser 
+that interprets these instructions and determines the mission response.
+
+Each command consists of:
+- Command Code (string): A 3-letter code indicating the type of operation  
+- Priority Level (integer): A number from 1 to 5 indicating urgency  
+- Payload Value (integer): Additional data required for the operation  
+
+**Command Processing Rules:**
+
+| Command Code | Priority Level      | Response Message                     | Resource Cost          |
+|--------------|---------------------|--------------------------------------|------------------------|
+| `NAV`        | 1 or 2              | `"Navigation: Minor Adjustment"`     | `payload × 2`          |
+| `NAV`        | 3 or 4              | `"Navigation: Major Correction"`     | `payload × 5`          |
+| `NAV`        | 5                   | `"Navigation: Emergency Maneuver"`   | `payload × 10`         |
+| `COM`        | 1 or 2              | `"Communication: Low Bandwidth"`     | `payload`              |
+| `COM`        | 3, 4, or 5          | `"Communication: Priority Uplink"`   | `payload × 3`          |
+| `PWR`        | any                 | `"Power: System Update"`             | `payload + priority`   |
+| `SOS`        | any                 | `"EMERGENCY: All Hands"`             | `500`                  |
+| *any other*  | any                 | `"Error: Unknown Command"`           | `0`                    |
+
+**Special Rule:**  
+For `SOS` commands, output an additional line containing the word `"MAYDAY"` after the resource cost.
+
+---
+
+### **Input Format**
+
+* Line 1: A string representing the 3-letter command code  
+* Line 2: An integer representing the priority level (1–5)  
+* Line 3: An integer representing the payload value  
+
+---
+
+### **Output Format**
+
+* Line 1: A string representing the response message  
+* Line 2: An integer representing the resource cost  
+* Line 3: The string `"MAYDAY"` — only if the command code is `"SOS"`
