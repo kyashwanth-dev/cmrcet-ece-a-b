@@ -1,4 +1,6 @@
-Deepak works for Indian Railways and is analyzing train stop patterns. The network has `n` stations numbered 1 to `n`. Each train has a starting station `s`, ending station `e`, and step value `k` — meaning it stops at stations `s`, `s + k`, `s + 2k`, ... up to `e` (inclusive).
+Deepak works for Indian Railways and is analyzing train stop patterns. 
+The network has `n` stations numbered 1 to `n`. Each train has a starting station `s`,
+ending station `e`, and step value `k` — meaning it stops at stations `s`, `s + k`, `s + 2k`, ... up to `e` (inclusive).
 
 For the given trains, determine:  
 - The stop sequence for each train (printed on separate lines)  
